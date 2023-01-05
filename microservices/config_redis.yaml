@@ -20,6 +20,23 @@ spec:
         volumeMounts:
          - name: redis-data
            mountPath: /data
+        readinessProbe:
+         initialDelaySeconds: 5
+         periodSeconds: 5
+         tcpSocket:
+           port: 6379
+        livenessProbe:
+         initialDelaySeconds: 5
+         periodSeconds: 5
+         tcpSocket:
+           port: 6379
+        resources:
+         requests:
+          cpu: 100m
+          memory: 100Mi
+         limits:
+          cpu: 120m
+          memory: 200Mi
       volumes:
        - name: redis-data
          emptyDir: {}

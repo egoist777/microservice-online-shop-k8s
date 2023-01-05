@@ -34,6 +34,13 @@ spec:
           value: "checkoutservice:5050"
         - name: RECOMMENDATION_SERVICE_ADDR
           value: "recommendationservice:8080"
+        resources:
+         requests:
+          cpu: 100m
+          memory: 64Mi
+         limits:
+          cpu: 200m
+          memory: 128Mi
 
 ---
 apiVersion: v1
